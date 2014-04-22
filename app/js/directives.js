@@ -3,7 +3,7 @@
 angular.module('app.directives', [])
 
     // Main directive, that just publish a controller
-    .directive('frangTree', function ($parse, $animate) {
+    .directive('frangTree', ['$parse', '$animate', function ($parse, $animate) {
         return {
             restrict: 'EA',
             controller: function($scope, $element) {
@@ -13,9 +13,9 @@ angular.module('app.directives', [])
                 };
             }
         };
-    })
+    }])
 
-    .directive('frangTreeRepeat', function ($parse, $animate) {
+    .directive('frangTreeRepeat', ['$parse', '$animate', function ($parse, $animate) {
 
         // ---------- Some necessary internal functions from angular.js ----------
 
@@ -367,7 +367,7 @@ angular.module('app.directives', [])
 
             }
         };
-    })
+    }])
 
     .directive('frangTreeInsertChildren', function () {
         return {
@@ -382,7 +382,7 @@ angular.module('app.directives', [])
         };
     })
 
-    .directive('frangTreeDrag', function($parse) {
+    .directive('frangTreeDrag', ['$parse', function($parse) {
         return {
             restrict: 'A',
             require: '^frangTree',
@@ -414,9 +414,9 @@ angular.module('app.directives', [])
                 );
             }
         };
-    })
+    }])
 
-    .directive('frangTreeDrop', function($parse) {
+    .directive('frangTreeDrop', ['$parse', function($parse) {
         return {
             restrict: 'A',
             require: '^frangTree',
@@ -480,5 +480,4 @@ angular.module('app.directives', [])
                 );
             }
         }
-    });
-
+    }]);
